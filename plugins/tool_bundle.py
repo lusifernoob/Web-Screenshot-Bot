@@ -309,7 +309,7 @@ async def primary_task(client: Client, msg: Message) -> None:
         log = int(os.environ["LOG_GROUP"])
         LOGGER.debug(f"WEB_SCRS:{printer.PID} --> LOG GROUP FOUND >> sending log")
         await client.send_message(
-            log, f"```{msg.chat.username}```\n{printer.__str__()}"
+            log, f'#WebSS:\n\n@{msg.chat.username} got {printer.__str__()}'
         )
     except Exception as e:
         LOGGER.debug(f"WEB_SCRS:{printer.PID} --> LOGGING FAILED >> {e}")
