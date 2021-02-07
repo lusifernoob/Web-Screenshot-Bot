@@ -34,7 +34,7 @@ class Printer(object):
         self.split = False
         self.fullpage = True
         self.location = "./FILES"
-        self.name = "@Webs-Screenshot"
+        self.name = "@Web_ss_Robot"
 
     def __str__(self):
         res = f'{self.resolution["width"]}+{self.resolution["height"]}'
@@ -108,9 +108,9 @@ async def split_func(location: str, filename: str, _format: str) -> list[str]:
         upper += slice_size
         # saving = the slice
         if "jpeg" in _format:
-            location_to_save_slice = f"@Webs.ScreenCapture-{str(count)}.jpeg"
+            location_to_save_slice = f"@Web.ScreenCapture-{str(count)}.jpeg"
         else:
-            location_to_save_slice = f"@Webs.ScreenCapture-{str(count)}.png"
+            location_to_save_slice = f"@Web.ScreenCapture-{str(count)}.png"
         working_slice.save(fp=location + location_to_save_slice, format=_format)
         location_of_image.append(location + location_to_save_slice)
         count += 1
@@ -120,7 +120,7 @@ async def split_func(location: str, filename: str, _format: str) -> list[str]:
 
 # https://stackoverflow.com/a/44946732/13033981
 async def zipper(location: str, location_of_image: list[str]) -> str:
-    location += "@Webs-Screenshot.zip"
+    location += "@Web_ss_Robot.zip"
     with ZipFile(location, "w") as zipper:
         for per_file in location_of_image:
             zipper.write(per_file)
@@ -166,7 +166,7 @@ async def draw(name: str, metrics: dict) -> io.BytesIO:
     return_object = io.BytesIO()
     main_paper.save(return_object, format="png")
     main_paper.close()
-    return_object.name = "@Webs-Screenshot.png"
+    return_object.name = "@Web_ss_Robot.png"
     return return_object
 
 
@@ -277,7 +277,7 @@ async def screenshot_driver(
         LOGGER.info(
             f"WEB_SCRS:{printer.PID} --> request failed -> Excepted PageError >> invalid link"
         )
-        raise ResponseNotReady("Not a valid link 😓🤔")
+        raise ResponseNotReady("Not 🚫 A valid link 😓🤔")
     finally:
         await asyncio.sleep(2)
         LOGGER.debug(
