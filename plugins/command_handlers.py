@@ -12,15 +12,15 @@ LOGGER.setLevel(10)
 BLACKLIST = ["drive.google.com", "tor.checker.in", "youtube.com", "youtu.be"]
 HOME = InlineKeyboardMarkup(
     [
-        [InlineKeyboardButton(text="Format - PDF", callback_data="format")],
-        [InlineKeyboardButton(text="Page - Full", callback_data="page")],
+        [InlineKeyboardButton(text="Format 📝 - PDF", callback_data="format")],
+        [InlineKeyboardButton(text="Page 📃 - Full", callback_data="page")],
         [
             InlineKeyboardButton(
-                text="show additional options ˅", callback_data="options"
+                text="🛠 Show Additional Options 🛠", callback_data="options"
             )
         ],
-        [InlineKeyboardButton(text="▫️ start render ▫️", callback_data="render")],
-        [InlineKeyboardButton(text="cancel", callback_data="cancel")],
+        [InlineKeyboardButton(text="✅ Start Process ✅", callback_data="render")],
+        [InlineKeyboardButton(text="Cancel ❌", callback_data="cancel")],
     ]
 )
 
@@ -33,7 +33,7 @@ async def start(_: Client, message: Message) -> None:
         "I can render website of a given link to either PDF or PNG/JPEG</b>",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("❓ About", callback_data="about_cb")]]
+            [[InlineKeyboardButton("❓ About 🤖", callback_data="about_cb")]]
         ),
     )
 
