@@ -42,27 +42,15 @@ async def start(_: Client, message: Message) -> None:
 async def feedback(_: Client, message: Message) -> None:
     LOGGER.debug(f"USED_CMD --> /about command >> @{message.from_user.username}")
     await message.reply_text(
-        text="This project is open ❤️ source",
-        reply_markup=InlineKeyboardMarkup(
+        text="<b>I can read webpage of a given link and send PDF or PNG or JPEG of Webpage to your!</b>",
+        reply_markup=InlineKeyboardMarkup([
             [
-                [
-                    InlineKeyboardButton(
-                        "👨🏻‍🦯 Source",
-                        url="https://github.com/alenpaul2001/Web-Screenshot-Bot",
-                    ),
-                    InlineKeyboardButton(
-                        "❓ Bug Report",
-                        url="https://github.com/alenpaul2001/Web-Screenshot-Bot/issues",
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "🌃 Profile Icon Credit",
-                        url="https://www.goodfon.com/wallpaper/art-vector-background-illustration-minimalism-angga-tanta-12.html",
-                    )
-                ],
-            ]
-        ),
+                InlineKeyboardButton("Telegram Bots 🤖 Updates", url="https://t.me/Mr_Bot_Developer"),
+                InlineKeyboardButton("Support Group 💬", url="https://t.me/Mr_Developer_Support")],
+            [InlineKeyboardButton(
+                "Developer 💻",
+                url="https://t.me/MrBot_Developer")]
+            ])
     )
 
 
