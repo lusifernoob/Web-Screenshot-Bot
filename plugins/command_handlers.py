@@ -28,14 +28,40 @@ HOME = InlineKeyboardMarkup(
 @Client.on_message(filters.command(["start"]))
 async def start(_: Client, message: Message) -> None:
     LOGGER.debug(f"USED_CMD --> /start command >> @{message.from_user.username}")
-    await message.reply_text(
-        f"<b>Hi {message.from_user.first_name} 👋\n"
-        "I can render website of a given link to either PDF or PNG/JPEG</b>",
-        quote=True,
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("❓ About 🤖", callback_data="about_cb")]]
-        ),
-    )
+    if message.chat.id in Config.BANNED_USERS:
+        await client.send_message(
+            chat_id=message.chat.id,
+            text="Banned",
+            reply_to_message_id=message.message_id
+        )
+        return
+    update_channel = Config.UPDATE_CHANNEL
+    if update_channel:
+        try:
+            user = await client.get_chat_member(update_channel, message.chat.id)
+            if user.status == "kicked":
+               await message.reply_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**")
+               return
+        except UserNotParticipant:
+            await message.reply_text(
+                text="**Join My Updates Channel to use ME 😎 🤭**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+              ])
+            )
+            return
+        except Exception:
+            await message.reply_text("Something Wrong. Contact my Support Group")
+            return
+    try:
+        await message.reply_text(
+            f"<b>Hi {message.from_user.first_name} 👋\n"
+            "I can render website of a given link to either PDF or PNG/JPEG</b>",
+            quote=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("❓ About 🤖", callback_data="about_cb")]]
+            ),
+        )
 
 
 @Client.on_message(filters.command(["about", "feedback"]))
