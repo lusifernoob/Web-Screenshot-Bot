@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pyrogram import Client, filters
 from plugins.logger import logging  # pylint:disable=import-error
 import os
-import creds
+from creds import my
 
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(10)
@@ -29,14 +29,14 @@ HOME = InlineKeyboardMarkup(
 @Client.on_message(filters.command(["start"]))
 async def start(_: Client, message: Message) -> None:
     LOGGER.debug(f"USED_CMD --> /start command >> @{message.from_user.username}")
-    if message.chat.id in creds.BANNED_USERS:
+    if message.chat.id in my.BANNED_USERS:
         await client.send_message(
             chat_id=message.chat.id,
             text="Banned",
             reply_to_message_id=message.message_id
         )
         return
-    update_channel = creds.UPDATE_CHANNEL
+    update_channel = my.UPDATE_CHANNEL
     if update_channel:
         try:
             user = await client.get_chat_member(update_channel, message.chat.id)
