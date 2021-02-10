@@ -3,6 +3,7 @@
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pyrogram import Client, filters
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
 from plugins.logger import logging  # pylint:disable=import-error
 import os
 from creds import my
