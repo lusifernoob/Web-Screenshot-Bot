@@ -32,7 +32,7 @@ async def start(_: Client, message: Message) -> None:
     if message.chat.id in my.BANNED_USERS:
         await client.send_message(
             chat_id=message.chat.id,
-            text="Banned",
+            text="**You are banned 🚫 to use this bot 🤭. Contact My [Support Group]{https://t.me/Mr_Developer_Support}**",
             reply_to_message_id=message.message_id
         )
         return
