@@ -63,15 +63,9 @@ async def start(_: Client, message: Message) -> None:
                 [[InlineKeyboardButton("❓ About 🤖", callback_data="about_cb")]]
             ),
         )
-        except Exception as e:
-        print("photomarkup error - " + str(e))
-        if "USER_IS_BLOCKED" in str(e):
-            return
-    else:
-        try:
-            await message.reply_text("Something went wrong!", quote=True)
-        except Exception:
-            return
+    except Exception :
+        await message.reply_text("Something went wrong!", quote=True)
+        return
 
 
 @Client.on_message(filters.command(["about", "feedback"]))
