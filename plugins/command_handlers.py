@@ -29,7 +29,6 @@ HOME = InlineKeyboardMarkup(
 
 @Client.on_message(filters.command(["start"]))
 async def start(_: Client, message: Message):
-    LOGGER.debug(f"USED_CMD --> /start command >> @{message.from_user.username}")
     if message.chat.id in my.BANNED_USERS:
         await Client.send_message(
             chat_id=message.chat.id,
@@ -71,8 +70,7 @@ async def start(_: Client, message: Message):
 
 
 @Client.on_message(filters.command(["about", "feedback"]))
-async def feedback(_: Client, message: Message) -> None:
-    LOGGER.debug(f"USED_CMD --> /about command >> @{message.from_user.username}")
+async def feedback(_: Client, message: Message):
     await message.reply_text(
         text="<b>I can read webpage of a given link and send PDF or PNG or JPEG of Webpage to your!</b>",
         reply_markup=InlineKeyboardMarkup([
@@ -87,8 +85,7 @@ async def feedback(_: Client, message: Message) -> None:
 
 
 @Client.on_message(filters.command(["delete"]) & filters.private)
-async def delete(_: Client, message: Message) -> None:
-    LOGGER.debug(f"USED_CMD --> /delete command >> @{message.from_user.username}")
+async def delete(_: Client, message: Message):
     try:
         sudo_user = int(os.environ["SUDO_USER"])
     except Exception:
@@ -129,8 +126,7 @@ async def delete(_: Client, message: Message) -> None:
 
 
 @Client.on_message(filters.command(["debug", "log"]) & filters.private)
-async def send_log(_: Client, message: Message) -> None:
-    LOGGER.debug(f"USED_CMD --> /debug command >> @{message.from_user.username}")
+async def send_log(_: Client, message: Message):
     try:
         sudo_user = int(os.environ["SUDO_USER"])
         if sudo_user != message.chat.id:
