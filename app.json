@@ -24,7 +24,18 @@
         },
         "LOG_GROUP": {
             "description": "ID of the logging group (optional)",
-            "value": ""
+            "value": "",
+            "required": false
+        },
+        "UPDATE_CHANNEL": {
+            "description": "For Force Sub 🤭",
+            "value": "",
+            "required": false
+        },
+        "BANNED_USERS": {
+            "description": "Ban unwanted people 😎",
+            "value": "",
+            "required": false
         }
     },
     "buildpacks": [
