@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from pyrogram import Client, filters, Message
+from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
 from plugins.logger import logging  # pylint:disable=import-error
 import os
@@ -28,7 +28,7 @@ HOME = InlineKeyboardMarkup(
 
 
 @Client.on_message(filters.command(["start"]))
-async def start(_: Client, message: Message) -> None:
+async def start(_: Client, message: Message):
     LOGGER.debug(f"USED_CMD --> /start command >> @{message.from_user.username}")
     if message.chat.id in my.BANNED_USERS:
         await Client.send_message(
