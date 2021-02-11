@@ -52,7 +52,8 @@ async def start(_: Client, message: Message) -> None:
               ])
             )
             return
-        except Exception:
+        except Exception as e:
+            LOGGER.debug(f"The error is {e}")
             await message.reply_text("**Something Wrong 🤪 . Contact my [Support Group](https://t.me/Mr_Developer_Support)**")
             return
     try:
