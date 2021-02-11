@@ -40,7 +40,8 @@ async def start(_: Client, message: Message) -> None:
     update_channel = my.UPDATE_CHANNEL
     if update_channel:
         try:
-            user = await Client.get_chat_member(update_channel, message.chat.id, message.from_user.user_id)
+            chat_id=message.chat.id
+            user = await Client.get_chat_member(update_channel, chat_id)
             if user.status == "kicked":
                await message.reply_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**")
                return
