@@ -28,9 +28,9 @@ HOME = InlineKeyboardMarkup(
 
 
 @Client.on_message(filters.command(["start"]))
-async def start(_: Client, message: Message):
+async def start(client: Client, message: Message):
     if message.chat.id in my.BANNED_USERS:
-        await Client.send_message(
+        await client.send_message(
             chat_id=message.chat.id,
             text="**You are banned 🚫 to use this bot 🤭. Contact My [Support Group]{https://t.me/Mr_Developer_Support}**",
             reply_to_message_id=message.message_id
@@ -39,7 +39,7 @@ async def start(_: Client, message: Message):
     update_channel = my.UPDATE_CHANNEL
     if update_channel:
         try:
-            user = await Client.get_chat_member(update_channel, message.chat.id, message.user.id)
+            user = await client.get_chat_member(update_channel, message.chat.id)
             if user.status == "kicked":
                await message.reply_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**")
                return
