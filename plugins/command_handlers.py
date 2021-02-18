@@ -32,7 +32,7 @@ async def start(client: Client, message: Message):
     if message.chat.id in my.BANNED_USERS:
         await client.send_message(
             chat_id=message.chat.id,
-            text="**You are banned 🚫 to use this bot 🤭. Contact My [Support Group]{https://t.me/Mr_Developer_Support}**",
+            text="**You are banned 🚫 to use this bot 🤭. Contact My [Support Group]{https://t.me/andhrabots}**",
             reply_to_message_id=message.message_id
         )
         return
@@ -75,11 +75,11 @@ async def feedback(_: Client, message: Message):
         text="<b>I can read webpage of a given link and send PDF or PNG or JPEG of Webpage to your!</b>",
         reply_markup=InlineKeyboardMarkup([
             [
-                InlineKeyboardButton("Telegram Bots 🤖 Updates", url="https://t.me/Mr_Bot_Developer"),
-                InlineKeyboardButton("Support Group 💬", url="https://t.me/Mr_Developer_Support")],
+                InlineKeyboardButton("Telegram Bots 🤖 Updates", url="https://t.me/andhrabots"),
+                InlineKeyboardButton("Support Group 💬", url="https://t.me/andhrabots")],
             [InlineKeyboardButton(
                 "Developer 💻",
-                url="https://t.me/MrBot_Developer")]
+                url="https://t..me/expertinbotmaking")]
             ])
     )
 
