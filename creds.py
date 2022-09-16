@@ -8,3 +8,4 @@ class my:
     # Banned Unwanted Members..
     BANNED_USERS = set(int(x) for x in os.environ.get("BANNED_USERS","").split())
     UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
+    LOG_GROUP = os.environ.get("LOG_GROUP", "")
