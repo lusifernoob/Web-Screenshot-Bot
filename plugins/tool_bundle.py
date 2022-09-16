@@ -34,7 +34,7 @@ class Printer(object):
         self.split = False
         self.fullpage = True
         self.location = "./FILES"
-        self.name = "@Web_ss_Robot"
+        self.name = "@OMG_info"
 
     def __str__(self):
         res = f'{self.resolution["width"]}+{self.resolution["height"]}'
@@ -120,7 +120,7 @@ async def split_func(location: str, filename: str, _format: str) -> list[str]:
 
 # https://stackoverflow.com/a/44946732/13033981
 async def zipper(location: str, location_of_image: list[str]) -> str:
-    location += "@Web_ss_Robot.zip"
+    location += "@OMG_info.zip"
     with ZipFile(location, "w") as zipper:
         for per_file in location_of_image:
             zipper.write(per_file)
