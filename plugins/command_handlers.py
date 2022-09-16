@@ -32,7 +32,7 @@ async def start(client: Client, message: Message):
     if message.chat.id in my.BANNED_USERS:
         await client.send_message(
             chat_id=message.chat.id,
-            text="**You are banned 🚫 to use this bot 🤭. Contact My [Support Group]{https://t.me/andhrabots}**",
+            text="**You are banned 🚫 to use this bot 🤭. Contact My [Support Group]{https://t.me/shado_hackers}**",
             reply_to_message_id=message.message_id
         )
         return
@@ -53,7 +53,7 @@ async def start(client: Client, message: Message):
             return
         except Exception as e:
             LOGGER.debug(f"The error is {e}")
-            await message.reply_text("**Something Wrong 🤪 . Contact my [Support Group](https://t.me/Mr_Developer_Support)**")
+            await message.reply_text("**Something Wrong 🤪 . Contact my [Support Group](https://t.me/OMG_info)**")
             return
     try:
         await message.reply_text(
@@ -75,11 +75,11 @@ async def feedback(_: Client, message: Message):
         text="<b>I can read webpage of a given link and send PDF or PNG or JPEG of Webpage to your!</b>",
         reply_markup=InlineKeyboardMarkup([
             [
-                InlineKeyboardButton("Telegram Bots 🤖 Updates", url="https://t.me/andhrabots"),
-                InlineKeyboardButton("Support Group 💬", url="https://t.me/andhrabots")],
+                InlineKeyboardButton("Telegram Bots 🤖 Updates", url="https://t.me/OMG_info"),
+                InlineKeyboardButton("Support Group 💬", url="https://t.me/nexleech")],
             [InlineKeyboardButton(
                 "Developer 💻",
-                url="https://t..me/expertinbotmaking")]
+                url="https://t..me/shado_hackers")]
             ])
     )
 
