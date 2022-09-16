@@ -11,7 +11,7 @@ from creds import my
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(10)
 
-BLACKLIST = ["drive.google.com", "tor.checker.in", "youtube.com", "youtu.be"]
+BLACKLIST = ["drive.google.com", "tor.checker.in", "youtube.com", "youtu.be", "xnxx.com", "pornhub.com", "indianporn.com"]
 HOME = InlineKeyboardMarkup(
     [
         [InlineKeyboardButton(text="Format 📝 - PDF", callback_data="format")],
